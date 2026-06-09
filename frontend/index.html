@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HACS Website</title>
+
+    <!-- ADD THIS SCRIPT 👇 -->
+    <script>
+      (function(){
+        var r = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if(r && r !== location.href) history.replaceState(null,null,r);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
