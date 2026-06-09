@@ -18,9 +18,9 @@ const Button = ({
 
   const variants = {
     primary:
-      "bg-[#53d1e6] text-[#071e25] hover:brightness-110",
+      "bg-[#1E3A5F] text-[#FFFFFF] hover:brightness-110",
     outline:
-      "border border-[rgba(83,209,230,0.25)] text-[#a8d9e4] hover:bg-white/10",
+      "border border-[rgba(30,58,95,0.25)] text-[#4B5563] hover:bg-white/10",
   };
 
   return (

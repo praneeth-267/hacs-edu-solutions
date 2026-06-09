@@ -18,8 +18,8 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: #071e25;
-  color: #edf9fb;
+  background-color: #FAFAF7;
+  color: #4B5563;
   min-height: 100dvh;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -44,15 +44,15 @@ input, textarea, select { font: inherit; }
 img, svg { display: block; max-width: 100%; }
 
 :focus-visible {
-  outline: 2px solid #53d1e6;
+  outline: 2px solid #D4A017;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #071e25; }
-::-webkit-scrollbar-thumb { background: rgba(83,209,230,0.2); border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #53d1e6; }
+::-webkit-scrollbar-track { background: #FAFAF7; }
+::-webkit-scrollbar-thumb { background: rgba(30,58,95,0.18); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #1E3A5F; }
 
 /* ── Page Wrapper — used on every page ── */
 .page-wrap {
@@ -64,6 +64,15 @@ img, svg { display: block; max-width: 100%; }
   display: flex;
   flex-direction: column;
   gap: 5.5rem;
+}
+
+@media (max-width: 768px) {
+  .page-wrap {
+    width: calc(100% - 1.5rem);
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    gap: 3.5rem;
+  }
 }
 
 /* ── Animations ── */
@@ -79,5 +88,11 @@ img, svg { display: block; max-width: 100%; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
   }
 }

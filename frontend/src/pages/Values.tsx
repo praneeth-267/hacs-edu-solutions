@@ -24,8 +24,8 @@ export default function Values() {
       }}>
         {values.map(v => (
           <div key={v.title} style={{
-            background: "#0a2b34",
-            border: "1px solid rgba(83,209,230,0.14)",
+            background: "#FFFFFF",
+            border: "1px solid #E5E7EB",
             borderRadius: 16,
             padding: "2rem 1.25rem",
             display: "flex",
@@ -38,7 +38,7 @@ export default function Values() {
             <h3 style={{
               fontFamily: "'Oswald', sans-serif",
               fontSize: "1rem",
-              color: "#edf9fb",
+              color: "#1A2E45",
               textTransform: "uppercase",
               letterSpacing: "0.06em",
             }}>

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import SectionHead from "../components/ui/SectionHead";
 import {
   studentServicesList,
@@ -12,6 +14,17 @@ const sections = [
 ];
 
 export default function Services() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.section) {
+      const el = document.getElementById(location.state.section);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <div className="page-wrap">
       <SectionHead
@@ -28,11 +41,11 @@ export default function Services() {
           <h3 style={{
             fontFamily: "'Oswald', sans-serif",
             fontSize: "1.4rem",
-            color: "#53d1e6",
+            color: "#1E3A5F",
             textTransform: "uppercase",
             letterSpacing: "0.08em",
             paddingBottom: "0.75rem",
-            borderBottom: "1px solid rgba(83,209,230,0.12)",
+            borderBottom: "1px solid rgba(30,58,95,0.12)",
           }}>
             {section.label}
           </h3>
@@ -41,12 +54,12 @@ export default function Services() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "1.25rem",
-            alignItems: "stretch",   // ← makes all cards same height
+            alignItems: "stretch",
           }}>
             {section.data.map(service => (
               <div key={service.title} style={{
-                background: "#0a2b34",
-                border: "1px solid rgba(83,209,230,0.14)",
+                background: "#FFFFFF",
+                border: "1px solid #E5E7EB",
                 borderRadius: 16,
                 padding: "1.5rem",
                 display: "flex",
@@ -56,7 +69,7 @@ export default function Services() {
                 <h4 style={{
                   fontFamily: "'Oswald', sans-serif",
                   fontSize: "1rem",
-                  color: "#edf9fb",
+                  color: "#1A2E45",
                   textTransform: "uppercase",
                   letterSpacing: "0.04em",
                 }}>
@@ -64,7 +77,7 @@ export default function Services() {
                 </h4>
 
                 <p style={{
-                  color: "#a8d9e4",
+                  color: "#4B5563",
                   fontSize: "0.8rem",
                   lineHeight: 1.7,
                 }}>
@@ -76,7 +89,7 @@ export default function Services() {
                     display: "flex",
                     flexDirection: "column",
                     gap: "0.3rem",
-                    marginTop: "auto",   // ← pushes list to bottom of card
+                    marginTop: "auto",
                   }}>
                     {service.items.map(item => (
                       <li key={item} style={{
@@ -84,14 +97,14 @@ export default function Services() {
                         alignItems: "flex-start",
                         gap: "0.5rem",
                         fontSize: "0.72rem",
-                        color: "#7fbfcc",
+                        color: "#B8860B",
                       }}>
                         <span style={{
                           marginTop: 5,
                           width: 4,
                           height: 4,
                           borderRadius: "50%",
-                          background: "#53d1e6",
+                          background: "#1E3A5F",
                           flexShrink: 0,
                         }} />
                         {item}

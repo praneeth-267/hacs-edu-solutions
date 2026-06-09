@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#53d1e6",
+        primary: "#1E3A5F",
       },
       fontFamily: {
         display: ['Oswald', 'sans-serif'],

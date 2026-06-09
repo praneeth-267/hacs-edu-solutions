@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function Layout() {
   return (
-    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", background: "#071e25", color: "#edf9fb" }}>
+    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", background: "#FAFAF7", color: "#4B5563" }}>
       <Navbar />
       <main style={{ flex: 1 }}>
         <Outlet />

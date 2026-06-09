@@ -40,8 +40,8 @@ export default function WhyUs() {
       }}>
         {reasons.map(item => (
           <div key={item.n} style={{
-            background: "#0a2b34",
-            border: "1px solid rgba(83,209,230,0.14)",
+            background: "#FFFFFF",
+            border: "1px solid #E5E7EB",
             borderRadius: 16,
             padding: "1.75rem",
             display: "flex",
@@ -52,14 +52,14 @@ export default function WhyUs() {
               width: 48,
               height: 48,
               borderRadius: "50%",
-              background: "rgba(83,209,230,0.08)",
-              border: "1px solid rgba(83,209,230,0.22)",
+              background: "rgba(30,58,95,0.08)",
+              border: "1px solid rgba(30,58,95,0.22)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontFamily: "'Oswald', sans-serif",
               fontSize: "1.1rem",
-              color: "#53d1e6",
+              color: "#1E3A5F",
               flexShrink: 0,
             }}>
               {item.n}
@@ -68,14 +68,14 @@ export default function WhyUs() {
               <h3 style={{
                 fontFamily: "'Oswald', sans-serif",
                 fontSize: "1.1rem",
-                color: "#edf9fb",
+                color: "#1A2E45",
                 textTransform: "uppercase",
                 letterSpacing: "0.04em",
               }}>
                 {item.title}
               </h3>
               <p style={{
-                color: "#a8d9e4",
+                color: "#4B5563",
                 fontSize: "0.825rem",
                 lineHeight: 1.75,
               }}>

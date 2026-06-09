@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "../components/ui/Card";
 import SectionHead from "../components/ui/SectionHead";
 import { services } from "../constants/services";
@@ -60,24 +60,9 @@ const serviceGroups = [
 ];
 
 export default function Home() {
-  const navigate = useNavigate();
-
-  const goToService = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate("/services");
-      setTimeout(() => {
-        const target = document.getElementById(sectionId);
-        if (target) target.scrollIntoView({ behavior: "smooth" });
-      }, 150);
-    }
-  };
-
   const card: React.CSSProperties = {
-    background: "#0a2b34",
-    border: "1px solid rgba(83,209,230,0.14)",
+    background: "#FFFFFF",
+    border: "1px solid #E5E7EB",
     borderRadius: 20,
     padding: "2rem",
     display: "flex",
@@ -106,13 +91,13 @@ export default function Home() {
   const cardTitle: React.CSSProperties = {
     fontFamily: "'Oswald', sans-serif",
     fontSize: "1.3rem",
-    color: "#edf9fb",
+    color: "#1A2E45",
     textTransform: "uppercase",
     letterSpacing: "0.03em",
   };
 
   const cardText: React.CSSProperties = {
-    color: "#a8d9e4",
+    color: "#4B5563",
     fontSize: "0.875rem",
     lineHeight: 1.7,
   };
@@ -130,19 +115,19 @@ export default function Home() {
           width: "fit-content",
           padding: "0.375rem 1rem",
           borderRadius: 999,
-          border: "1px solid rgba(83,209,230,0.2)",
-          background: "rgba(83,209,230,0.06)",
+          border: "1px solid rgba(30,58,95,0.2)",
+          background: "rgba(30,58,95,0.06)",
         }}>
           <span style={{
             width: 7,
             height: 7,
             borderRadius: "50%",
-            background: "#53d1e6",
+            background: "#1E3A5F",
             flexShrink: 0,
           }} />
           <span style={{
             fontSize: "0.7rem",
-            color: "#a8d9e4",
+            color: "#B8860B",
             textTransform: "uppercase",
             letterSpacing: "0.2em",
           }}>
@@ -156,17 +141,17 @@ export default function Home() {
           textTransform: "uppercase",
           letterSpacing: "0.02em",
           lineHeight: 1.03,
-          color: "#edf9fb",
+          color: "#1A2E45",
           maxWidth: "900px",
         }}>
           Empowering{" "}
-          <span style={{ color: "#53d1e6" }}>Education,</span>
+          <span style={{ color: "#B8860B" }}>Education,</span>
           <br />
           Enabling Success
         </h1>
 
         <p style={{
-          color: "#a8d9e4",
+          color: "#4B5563",
           fontSize: "1rem",
           lineHeight: 1.75,
           maxWidth: 600,
@@ -185,11 +170,11 @@ export default function Home() {
             style={{
               padding: "0.7rem 1.75rem",
               borderRadius: 999,
-              background: "#53d1e6",
-              color: "#071e25",
+              background: "#1E3A5F",
+              color: "#FFFFFF",
               fontWeight: 700,
               fontSize: "0.8rem",
-              boxShadow: "0 0 24px rgba(83,209,230,0.2)",
+              boxShadow: "0 0 24px rgba(30,58,95,0.12)",
               textDecoration: "none",
             }}
           >
@@ -200,8 +185,8 @@ export default function Home() {
             style={{
               padding: "0.7rem 1.75rem",
               borderRadius: 999,
-              border: "1px solid rgba(83,209,230,0.22)",
-              color: "#a8d9e4",
+              border: "1px solid rgba(30,58,95,0.22)",
+              color: "#4B5563",
               fontSize: "0.8rem",
               textDecoration: "none",
             }}
@@ -230,7 +215,6 @@ export default function Home() {
         ))}
       </section>
 
-
       {/* ── Services at a Glance ── */}
       <section style={section}>
         <SectionHead
@@ -242,7 +226,7 @@ export default function Home() {
             <div key={group.category}>
               <p style={{
                 fontSize: "0.68rem",
-                color: "#53d1e6",
+                color: "#1E3A5F",
                 textTransform: "uppercase",
                 letterSpacing: "0.18em",
                 fontFamily: "'Oswald', sans-serif",
@@ -252,32 +236,35 @@ export default function Home() {
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                 {group.items.map(item => (
-                  <button
+                  <Link
                     key={item}
-                    onClick={() => goToService(group.sectionId)}
+                    to="/services"
+                    state={{ section: group.sectionId }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.background = "rgba(83,209,230,0.12)";
-                      e.currentTarget.style.color = "#edf9fb";
-                      e.currentTarget.style.borderColor = "rgba(83,209,230,0.5)";
-                    }}
+  (e.currentTarget as HTMLElement).style.background = "rgba(30,58,95,0.12)";
+  (e.currentTarget as HTMLElement).style.color = "#1E3A5F";
+  (e.currentTarget as HTMLElement).style.borderColor = "rgba(30,58,95,0.5)";
+}}
                     onMouseLeave={e => {
-                      e.currentTarget.style.background = "rgba(83,209,230,0.04)";
-                      e.currentTarget.style.color = "#a8d9e4";
-                      e.currentTarget.style.borderColor = "rgba(83,209,230,0.2)";
+                      (e.currentTarget as HTMLElement).style.background = "rgba(30,58,95,0.04)";
+                      (e.currentTarget as HTMLElement).style.color = "#4B5563";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(30,58,95,0.2)";
                     }}
                     style={{
                       padding: "0.375rem 0.875rem",
                       borderRadius: 999,
-                      border: "1px solid rgba(83,209,230,0.2)",
-                      background: "rgba(83,209,230,0.04)",
-                      color: "#a8d9e4",
+                      border: "1px solid rgba(30,58,95,0.2)",
+                      background: "rgba(30,58,95,0.04)",
+                      color: "#4B5563",
                       fontSize: "0.78rem",
                       cursor: "pointer",
                       transition: "all 0.15s",
+                      textDecoration: "none",
+                      display: "inline-block",
                     }}
                   >
                     {item}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -289,8 +276,8 @@ export default function Home() {
             style={{
               padding: "0.625rem 1.5rem",
               borderRadius: 999,
-              border: "1px solid rgba(83,209,230,0.2)",
-              color: "#a8d9e4",
+              border: "1px solid rgba(30,58,95,0.2)",
+              color: "#4B5563",
               fontSize: "0.8rem",
               textDecoration: "none",
             }}
@@ -307,14 +294,14 @@ export default function Home() {
           subtitle=""
         />
         <div style={{
-          background: "#0a2b34",
-          border: "1px solid rgba(83,209,230,0.2)",
+          background: "#FFFFFF",
+          border: "1px solid #E5E7EB",
           borderRadius: 20,
           padding: "2.5rem",
           maxWidth: 680,
         }}>
           <p style={{
-            color: "#a8d9e4",
+            color: "#4B5563",
             fontSize: "1.05rem",
             lineHeight: 1.85,
             textAlign: "center",
@@ -326,7 +313,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* ── Our Approach ── */}
+      {/* ── Our Approach ── */}
       <section style={section}>
         <SectionHead
           title="Our Approach"
@@ -339,14 +326,14 @@ export default function Home() {
                 width: 44,
                 height: 44,
                 borderRadius: "50%",
-                background: "rgba(83,209,230,0.08)",
-                border: "1px solid rgba(83,209,230,0.22)",
+                background: "rgba(30,58,95,0.08)",
+                border: "1px solid rgba(30,58,95,0.22)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 fontFamily: "'Oswald', sans-serif",
                 fontSize: "1.1rem",
-                color: "#53d1e6",
+                color: "#1E3A5F",
               }}>
                 {item.n}
               </div>

@@ -34,7 +34,7 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl bg-[#0d3440] border border-[rgba(83,209,230,0.17)] text-[#edf9fb] placeholder:text-[#5aabb8] focus:outline-none focus:border-[#53d1e6] transition text-sm";
+    "w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#E5E7EB] text-[#4B5563] placeholder:text-[#B8860B] focus:outline-none focus:border-[#1E3A5F] transition text-sm";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
@@ -74,13 +74,13 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full py-3 rounded-full bg-[#53d1e6] text-[#071e25] font-bold text-sm hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-3 rounded-full bg-[#1E3A5F] text-[#FFFFFF] font-bold text-sm hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? "Sending..." : "Send Message"}
       </button>
 
       {status === "success" && (
-        <div className="px-4 py-3 rounded-xl bg-[rgba(83,209,230,0.08)] border border-[rgba(83,209,230,0.25)] text-[#53d1e6] text-sm text-center">
+        <div className="px-4 py-3 rounded-xl bg-[rgba(30,58,95,0.08)] border border-[rgba(30,58,95,0.25)] text-[#1E3A5F] text-sm text-center">
           ✅ Message sent! We'll be in touch soon.
         </div>
       )}
