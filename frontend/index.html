@@ -7,13 +7,14 @@
 
     <!-- ADD THIS SCRIPT 👇 -->
     <script>
-      (function(){
-        var r = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if(r && r !== location.href) history.replaceState(null,null,r);
-      })();
-    </script>
-
+  (function(){
+    var path = sessionStorage.getItem('redirect');
+    sessionStorage.removeItem('redirect');
+    if (path && path !== '/') {
+      window.history.replaceState(null, '', '/hacs-edu-solutions' + path);
+    }
+  })();
+</script>
   </head>
   <body>
     <div id="root"></div>
