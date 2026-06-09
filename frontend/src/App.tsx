@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/hacs-edu-solutions">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
