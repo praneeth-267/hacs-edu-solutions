@@ -225,9 +225,77 @@ export default function Navbar() {
         {/* ── CTA + Hamburger ── */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0 }}>
 
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              width: 36, height: 36, borderRadius: 8,
+              border: "1px solid rgba(83,209,230,0.2)",
+              display: "flex", flexDirection: "column",
+              alignItems: "center", justifyContent: "center",
+              gap: 5, background: "transparent", cursor: "pointer",
+            }}
+          >
+            <span style={{ display: "block", width: 18, height: 2, background: "#edf9fb", borderRadius: 2, transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }} />
+            <span style={{ display: "block", width: 18, height: 2, background: "#edf9fb", borderRadius: 2, transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
+            <span style={{ display: "block", width: 18, height: 2, background: "#edf9fb", borderRadius: 2, transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-7px)" : "none" }} />
+          </button>
         </div>
       </div>
 
+      {/* ── Mobile Menu ── */}
+      {menuOpen && (
+        <div style={{
+          background: "#0a2b34",
+          borderTop: "1px solid rgba(83,209,230,0.1)",
+          padding: "1rem 1.5rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: 4,
+        }}>
+          {([
+            ["Home", "/"],
+            ["About Us", "/about"],
+            ["Services", "/services"],
+            ["Why Choose Us", "/why-us"],
+            ["Our Values", "/values"],
+            ["Contact Us", "/contact"],
+          ] as [string, string][]).map(([label, to]) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: "block",
+                padding: "0.625rem 1rem",
+                borderRadius: 10,
+                color: "#a8d9e4",
+                fontSize: "1rem",
+                borderBottom: "1px solid rgba(83,209,230,0.07)",
+                textDecoration: "none",
+              }}
+            >
+              {label}
+            </NavLink>
+          ))}
+          <NavLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            style={{
+              marginTop: 12,
+              padding: "0.625rem",
+              borderRadius: 999,
+              background: "#53d1e6",
+              color: "#071e25",
+              fontWeight: 700,
+              fontSize: "1rem",
+              textAlign: "center",
+              textDecoration: "none",
+            }}
+          >
+            Get in Touch
+          </NavLink>
+        </div>
+      )}
     </header>
   );
 }
